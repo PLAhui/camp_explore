@@ -11,8 +11,8 @@ module.exports = {
   
   },
   methods: {
-	test(){
-		console.log("公用方法mixin")
-	}
+	getLocal(){
+			  console.log("获取定位")
+	},
   }
 }

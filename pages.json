@@ -6,6 +6,7 @@
 		{
 			"path": "pages/index",
 			"style": {
+				"navigationBarTitleText": "营地",
 				"mp-weixin": {
 					"disableScroll": true
 				},
@@ -44,7 +45,7 @@
 		"navigationStyle": "custom",
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "unll-404",
-		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8"
+		"navigationBarBackgroundColor": "#fff",
+		"backgroundColor": "#fff"
 	}
 }

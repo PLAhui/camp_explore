@@ -50,17 +50,17 @@
 			return {
 				// 底部tabbar菜单数据
 				tabbarList: [{
-						title: '首页',
+						title: '营地',
 						activeIcon: '/static/tabbar/home_tnnew.png',
 						inactiveIcon: '/static/tabbar/home_tn.png'
 					},
 					{
-						title: '圈子',
+						title: '发现',
 						activeIcon: '/static/tabbar/circle_tnnew.png',
 						inactiveIcon: '/static/tabbar/circle_tn.png'
 					},
 					{
-						title: '广场',
+						title: '发布',
 						activeIcon: 'menu-circle',
 						inactiveIcon: 'rocket',
 						activeIconColor: '#FFFFFF',
@@ -69,7 +69,7 @@
 						out: true
 					},
 					{
-						title: '优选',
+						title: '收藏',
 						activeIcon: '/static/tabbar/preferred_tnnew.png',
 						inactiveIcon: '/static/tabbar/preferred_tn.png',
 					},
@@ -124,4 +124,7 @@
 </script>
 
 <style lang="scss" scoped>
+	page{
+		background-color:#fff;
+	}
 </style>

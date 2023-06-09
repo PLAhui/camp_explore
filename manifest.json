@@ -42,14 +42,19 @@
     },
     "quickapp" : {},
     "mp-weixin" : {
-        "appid" : "wxeb7d926f5c6f1000",
+        "appid" : "wx9f5d5461467f4b55",
         "setting" : {
             "urlCheck" : false,
             "es6" : true,
             "postcss" : true,
             "minified" : true
         },
-        "usingComponents" : true
+        "usingComponents" : true,
+        "permission" : {
+            "scope.userLocation" : {
+                "desc" : "获取附近房营地"
+            }
+        }
     },
     "mp-alipay" : {
         "usingComponents" : true
@@ -63,5 +68,14 @@
     "uniStatistics" : {
         "enable" : false
     },
-    "vueVersion" : "2"
+    "vueVersion" : "2",
+    "h5" : {
+        "sdkConfigs" : {
+            "maps" : {
+                "qqmap" : {
+                    "key" : "QMBBZ-KNVCD-KNK4P-PHH3H-ZA6DT-E6BPR"
+                }
+            }
+        }
+    }
 }
