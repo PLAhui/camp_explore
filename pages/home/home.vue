@@ -1,5 +1,5 @@
 <template>
-	<view class="template-index tn-safe-area-inset-bottom">
+	<view>
 		<tn-nav-bar fixed customBack :bottomShadow="false" backgroundColor="">
 			<view slot="back" class='tn-custom-nav-bar__back' @click="ShowLocalSelect">
 				<text class='tn-icon tn-icon-location' style="font-size: 36rpx;"></text>
@@ -9,59 +9,25 @@
 				附近的营地
 			</view>
 		</tn-nav-bar>
-		<view @click="showModel" class="tn-flex tn-flex-row-between tn-margin-left-sm tn-margin-right-sm"
+		<view class="tn-flex tn-flex-row-between tn-margin-left-sm tn-margin-right-sm"
 			:style="{paddingTop: vuex_custom_bar_height + 'px'}" ref="myheader" id="myheader">
 			<view class="justify-content-item">
-				<tn-button shape="icon" shadow fontBold fontColor="#737275"> <text
+				<tn-button shape="icon" shadow fontBold fontColor="#737275" @click="showPopup(0)"> <text
 						class="tn-icon-search"></text></tn-button>
-				<tn-button shape="round" shadow margin="10rpx" fontColor="#737275">类型</tn-button>
-				<tn-button shape="round" shadow fontColor="#737275">更多筛选</tn-button>
+				<tn-button shape="round" shadow margin="10rpx" fontColor="#737275" @click="showPopup(1)">类型</tn-button>
+				<tn-button shape="round" shadow fontColor="#737275" @click="showPopup(2)">更多筛选</tn-button>
 			</view>
 			<view class="justify-content-item">
-				<tn-button shape="icon" shadow margin="10rpx" fontBold fontColor="#737275"> <text
+				<tn-button shape="icon" shadow margin="10rpx" fontBold fontColor="#737275" @click="showPopup(3)"> <text
 						class="tn-icon-set"></text></tn-button>
 			</view>
 		</view>
-
-		<tn-popup v-model="show" mode="top" :marginTop="vuex_custom_bar_height" :mask="false" :borderRadius="20">
-			<view style="background-color:'';padding: 10rpx;">
-				<tn-input v-model="search" type="text" :border="true" :showRightIcon="true" placeholder="输入城市,地点名称切换定位"
-					rightIcon="search" style="border-radius:20px" />
-				<view class="tn-margin-sm">
-					<tn-tag margin="10rpx" shape="radius" backgroundColor="#f6f6f6" fontColor="#737275">标签</tn-tag>
-					<tn-tag margin="10rpx" shape="radius" backgroundColor="#f6f6f6" fontColor="#737275">标签</tn-tag>
-					<tn-tag margin="10rpx" shape="radius" backgroundColor="#f6f6f6" fontColor="#737275">标签</tn-tag>
-					<tn-tag margin="10rpx" shape="radius" backgroundColor="#f6f6f6" fontColor="#737275">标签</tn-tag>
-					<tn-tag margin="10rpx" shape="radius" backgroundColor="#f6f6f6" fontColor="#737275">标签</tn-tag>
-					<tn-tag margin="10rpx" shape="radius" backgroundColor="#f6f6f6" fontColor="#737275">标签</tn-tag>
-					<tn-tag margin="10rpx" shape="radius" backgroundColor="#f6f6f6" fontColor="#737275">标签</tn-tag>
-					<tn-tag margin="10rpx" shape="radius" backgroundColor="#f6f6f6" fontColor="#737275">标签</tn-tag>
-					<tn-tag margin="10rpx" shape="radius" backgroundColor="#f6f6f6" fontColor="#737275">标签</tn-tag>
-				</view>
-			</view>
-		</tn-popup>
-
-		<tn-popup v-model="show1" mode="top" :marginTop="myheaderH" :mask="false" :borderRadius="20">
-			<view style="background-color:'';padding: 10rpx;">
-				<tn-input v-model="search" type="text" :border="true" :showRightIcon="true" placeholder="输入城市,地点名称切换定位"
-					rightIcon="search" style="border-radius:20px" />
-				<view class="tn-margin-sm">
-					<tn-tag margin="10rpx" shape="radius" backgroundColor="#f6f6f6" fontColor="#737275">标签</tn-tag>
-					<tn-tag margin="10rpx" shape="radius" backgroundColor="#f6f6f6" fontColor="#737275">标签</tn-tag>
-					<tn-tag margin="10rpx" shape="radius" backgroundColor="#f6f6f6" fontColor="#737275">标签</tn-tag>
-					<tn-tag margin="10rpx" shape="radius" backgroundColor="#f6f6f6" fontColor="#737275">标签</tn-tag>
-					<tn-tag margin="10rpx" shape="radius" backgroundColor="#f6f6f6" fontColor="#737275">标签</tn-tag>
-					<tn-tag margin="10rpx" shape="radius" backgroundColor="#f6f6f6" fontColor="#737275">标签</tn-tag>
-					<tn-tag margin="10rpx" shape="radius" backgroundColor="#f6f6f6" fontColor="#737275">标签</tn-tag>
-					<tn-tag margin="10rpx" shape="radius" backgroundColor="#f6f6f6" fontColor="#737275">标签</tn-tag>
-					<tn-tag margin="10rpx" shape="radius" backgroundColor="#f6f6f6" fontColor="#737275">标签</tn-tag>
-				</view>
-			</view>
-		</tn-popup>
+		<InexSearchPopup ref="InexSearchPopup" />
+		<InexSelectPopup ref="InexSelectPopup" :marginTop="myheaderH" />
 
 
 		<view class="">
-			<map style="width: 100%;" :style="{height: bodyH + 'px'}"  :latitude="latitude" :longitude="longitude">
+			<map style="width: 100%;" :style="{height: bodyH + 'px'}" :latitude="latitude" :longitude="longitude">
 			</map>
 		</view>
 
@@ -70,17 +36,22 @@
 </template>
 
 <script>
+	import InexSearchPopup from '@/components/InexSearchPopup.vue'
+	import InexSelectPopup from '@/components/InexSelectPopup.vue'
+
 	import methods_mixin from '@/libs/mixin/methods_mixin.js'
 	export default {
 		mixins: [methods_mixin],
+		components: {
+			InexSearchPopup,
+			InexSelectPopup
+		},
 		name: 'Index',
 		data() {
 			return {
-				myheaderH: 0,
-				bodyH:0,
-				search: '',
-				show: false,
-				show1: false,
+				myheaderH: 0, //筛选栏卡片高度
+				bodyH: 0, //页面主体高度
+
 
 				id: 0, // 使用 marker点击事件 需要填写id
 				title: 'map',
@@ -104,8 +75,8 @@
 				that.myheaderH = res.height
 			}).exec()
 			uni.getSystemInfo({
-				success: function (res) {
-					that.bodyH = res.windowHeight-that.myheaderH-that.vuex_custom_bar_height-10;
+				success: function(res) {
+					that.bodyH = res.windowHeight - that.myheaderH - that.vuex_custom_bar_height - 10;
 				}
 			});
 			// #endif
@@ -117,46 +88,28 @@
 				that.myheaderH = res.height
 			}).exec()
 			uni.getSystemInfo({
-				success: function (res) {
-					that.bodyH = res.windowHeight-that.myheaderH-that.vuex_custom_bar_height-80;
+				success: function(res) {
+					that.bodyH = res.windowHeight - that.myheaderH - that.vuex_custom_bar_height - 80;
 				}
 			});
 			// #endif
 		},
-		beforeCreate() {
-			console.log("beforeCreate home")
-		},
-		created() {
-			console.log("created home")
-		},
+
 		methods: {
+			//显示选择弹出层
+			showPopup(type) {
+				this.$refs.InexSelectPopup.showPopup();
+			},
+			//显示切换位置弹出层
 			ShowLocalSelect() {
-				this.show = !this.show
+				this.$refs.InexSearchPopup.showPopup();
 			},
-			showModel() {
-				this.show1 = true
-			},
-			tn(url) {
-				console.log("跳转搜索页", this.$api)
-				this.$api.petsList().then(res => {
-					console.log(res)
-				})
-			}
+
 		}
 	}
 </script>
 
 <style lang="scss" scoped>
-	.template-index {
-		max-height: 100vh;
-	}
-
-	.tn-tabbar-height {
-		min-height: 100rpx;
-		height: calc(120rpx + env(safe-area-inset-bottom) / 2);
-	}
-
-
 	/* 自定义导航栏内容 start */
 	.custom-nav {
 		height: 100%;
@@ -194,20 +147,5 @@
 			}
 		}
 	}
-
-	.logo-image {
-		width: 65rpx;
-		height: 65rpx;
-		position: relative;
-	}
-
-	.logo-pic {
-		background-size: cover;
-		background-repeat: no-repeat;
-		// background-attachment:fixed;
-		background-position: top;
-		border-radius: 50%;
-	}
-
 	/* 自定义导航栏内容 end */
 </style>
