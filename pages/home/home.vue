@@ -60,10 +60,10 @@
 		</tn-popup>
 
 
-		<!-- <view class="page-section page-section-gap">
-			<map style="width: 100%; height: 600px;" :latitude="latitude" :longitude="longitude">
+		<view class="">
+			<map style="width: 100%;" :style="{height: bodyH + 'px'}"  :latitude="latitude" :longitude="longitude">
 			</map>
-		</view> -->
+		</view>
 
 
 	</view>
@@ -77,6 +77,7 @@
 		data() {
 			return {
 				myheaderH: 0,
+				bodyH:0,
 				search: '',
 				show: false,
 				show1: false,
@@ -102,6 +103,11 @@
 			uni.createSelectorQuery().in(this).select('#myheader').boundingClientRect(res => {
 				that.myheaderH = res.height
 			}).exec()
+			uni.getSystemInfo({
+				success: function (res) {
+					that.bodyH = res.windowHeight-that.myheaderH-that.vuex_custom_bar_height-10;
+				}
+			});
 			// #endif
 		},
 		onReady() {
@@ -110,6 +116,11 @@
 			uni.createSelectorQuery().in(this).select('#myheader').boundingClientRect(res => {
 				that.myheaderH = res.height
 			}).exec()
+			uni.getSystemInfo({
+				success: function (res) {
+					that.bodyH = res.windowHeight-that.myheaderH-that.vuex_custom_bar_height-80;
+				}
+			});
 			// #endif
 		},
 		beforeCreate() {
