@@ -9,63 +9,32 @@
 				附近的营地
 			</view>
 		</tn-nav-bar>
-		<view class="tn-flex tn-flex-row-between tn-margin-left-sm tn-margin-right-sm"
-			:style="{paddingTop: vuex_custom_bar_height + 'px'}" ref="myheader" id="myheader">
-			<view class="justify-content-item">
-				<tn-button shape="icon" shadow fontBold fontColor="#737275" @click="showPopup(0)"> <text
-						class="tn-icon-search"></text></tn-button>
-				<tn-button shape="round" shadow margin="10rpx" fontColor="#737275" @click="showPopup(1)">类型</tn-button>
-				<tn-button shape="round" shadow fontColor="#737275" @click="showPopup(2)">更多筛选</tn-button>
-			</view>
-			<view class="justify-content-item">
-				<tn-button shape="icon" shadow margin="10rpx" fontBold fontColor="#737275" @click="showPopup(3)"> <text
-						class="tn-icon-set"></text></tn-button>
-			</view>
-		</view>
+		
+		<IndexHeaderBar ref="IndexHeaderBar" :height="myheaderH" id="myheader"/>
 		<InexSearchPopup ref="InexSearchPopup" />
-		<InexSelectPopup ref="InexSelectPopup" :marginTop="myheaderH" />
-
-
-		<view class="">
-			<map style="width: 100%;" :style="{height: bodyH + 'px'}" :latitude="latitude" :longitude="longitude">
-			</map>
-		</view>
-
-
+		<CompMap ref="CompMap" :height="bodyH"/>
 	</view>
 </template>
 
 <script>
+	import IndexHeaderBar from '@/components/IndexHeaderBar.vue'
 	import InexSearchPopup from '@/components/InexSearchPopup.vue'
-	import InexSelectPopup from '@/components/InexSelectPopup.vue'
+	import CompMap from '@/components/CompMap.vue'
+
 
 	import methods_mixin from '@/libs/mixin/methods_mixin.js'
 	export default {
 		mixins: [methods_mixin],
 		components: {
+			IndexHeaderBar,
 			InexSearchPopup,
-			InexSelectPopup
+			CompMap
 		},
 		name: 'Index',
 		data() {
 			return {
 				myheaderH: 0, //筛选栏卡片高度
 				bodyH: 0, //页面主体高度
-
-
-				id: 0, // 使用 marker点击事件 需要填写id
-				title: 'map',
-				latitude: 39.909,
-				longitude: 116.39742,
-				// covers: [{
-				// 	latitude: 39.909,
-				// 	longitude: 116.39742,
-				// 	iconPath: '../../../static/logo.png'
-				// }, {
-				// 	latitude: 39.90,
-				// 	longitude: 116.39,
-				// 	iconPath: '../../../static/logo.png'
-				// }]
 			}
 		},
 		mounted() {
@@ -96,10 +65,6 @@
 		},
 
 		methods: {
-			//显示选择弹出层
-			showPopup(type) {
-				this.$refs.InexSelectPopup.showPopup();
-			},
 			//显示切换位置弹出层
 			ShowLocalSelect() {
 				this.$refs.InexSearchPopup.showPopup();

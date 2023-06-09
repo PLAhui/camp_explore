@@ -1,3 +1,4 @@
+<!-- 首页搜索定位弹出层 -->
 <template>
 	<view>
 		<tn-popup v-model="show" mode="top" :marginTop="vuex_custom_bar_height" :mask="false" :borderRadius="20">

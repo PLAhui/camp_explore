@@ -1,3 +1,4 @@
+<!-- 首页筛选弹出层 -->
 <template>
 	<view>
 		<tn-popup v-model="show" mode="top" :marginTop="marginTop" :mask="false" :borderRadius="20">
