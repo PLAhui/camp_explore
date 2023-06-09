@@ -13,6 +13,8 @@
 		<IndexHeaderBar ref="IndexHeaderBar" :height="myheaderH" id="myheader"/>
 		<InexSearchPopup ref="InexSearchPopup" />
 		<CompMap ref="CompMap" :height="bodyH"/>
+		<!-- <IndexCardsHorizontalScrol/> -->
+		<IndexRightFabButton/>
 	</view>
 </template>
 
@@ -20,6 +22,8 @@
 	import IndexHeaderBar from '@/components/IndexHeaderBar.vue'
 	import InexSearchPopup from '@/components/InexSearchPopup.vue'
 	import CompMap from '@/components/CompMap.vue'
+	import IndexCardsHorizontalScrol from '@/components/IndexCardsHorizontalScrol.vue'
+	import IndexRightFabButton from '@/components/IndexRightFabButton.vue'
 
 
 	import methods_mixin from '@/libs/mixin/methods_mixin.js'
@@ -28,7 +32,9 @@
 		components: {
 			IndexHeaderBar,
 			InexSearchPopup,
-			CompMap
+			CompMap,
+			IndexCardsHorizontalScrol,
+			IndexRightFabButton
 		},
 		name: 'Index',
 		data() {
