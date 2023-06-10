@@ -23,9 +23,14 @@ Vue.mixin(vuexStore)
 let mpShare = require('tuniao-ui/libs/mixin/mpShare.js')
 Vue.mixin(mpShare)
 
+var QQMapWX = require('@/sdk/qqmap-wx-jssdk1.2/qqmap-wx-jssdk.js');
+Vue.prototype.$qqmapsdk = new QQMapWX({
+	key: 'NE4BZ-ELIWB-JC3UY-J4FBD-2FPX2-RSBU7'
+});
+
 const app = new Vue({
-  store,
-  ...App
+	store,
+	...App
 })
 
 app.$mount()

@@ -54,7 +54,8 @@
             "scope.userLocation" : {
                 "desc" : "获取附近房营地"
             }
-        }
+        },
+        "requiredPrivateInfos" : [ "getLocation" ]
     },
     "mp-alipay" : {
         "usingComponents" : true
@@ -73,7 +74,7 @@
         "sdkConfigs" : {
             "maps" : {
                 "qqmap" : {
-                    "key" : "QMBBZ-KNVCD-KNK4P-PHH3H-ZA6DT-E6BPR"
+                    "key" : "NE4BZ-ELIWB-JC3UY-J4FBD-2FPX2-RSBU7"
                 }
             }
         }

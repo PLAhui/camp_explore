@@ -11,8 +11,6 @@ module.exports = {
   
   },
   methods: {
-	getLocal(){
-			  console.log("获取定位")
-	},
+
   }
 }

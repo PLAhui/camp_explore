@@ -39,6 +39,13 @@ const store = new Vuex.Store({
 		APP_USER: lifeData.APP_USER ? lifeData.APP_USER : null,
 		APP_TOKEN: lifeData.APP_TOKEN ? lifeData.APP_TOKEN : null,
 
+		//地图中心点位置
+		CENTERLATLONG: lifeData.CENTERLATLONG ? lifeData.CENTERLATLONG : {
+			latitude: 39.909,
+			longitude: 116.39742,
+			address: '未知'
+		},
+
 
 		// 如果上面从本地获取的lifeData对象下有对应的属性，就赋值给state中对应的变量
 		// 加上vuex_前缀，是防止变量名冲突，也让人一目了然

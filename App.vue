@@ -5,9 +5,6 @@
 
 	export default {
 		onLaunch: function() {
-
-
-
 			// 获取设备的状态栏信息和自定义顶栏信息
 			// store.dispatch('updateCustomBarInfo')
 			updateCustomBarInfo().then((res) => {

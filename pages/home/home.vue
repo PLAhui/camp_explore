@@ -1,9 +1,9 @@
 <template>
 	<view>
 		<tn-nav-bar fixed customBack :bottomShadow="false" backgroundColor="">
-			<view slot="back" class='tn-custom-nav-bar__back' @click="ShowLocalSelect">
+			<view slot="back" class='longlinedots tn-custom-nav-bar__back' @click="ShowLocalSelect" style="width:100%;">
 				<text class='tn-icon tn-icon-location' style="font-size: 36rpx;"></text>
-				<text>中原区<span class="tn-icon-right"></span></text>
+				<text>{{CENTERLATLONG.address}}<span class="tn-icon-right"></span></text>
 			</view>
 			<view slot="default" class='tn-custom-nav-bar__back' id="title">
 				附近的营地
@@ -54,6 +54,7 @@
 					that.bodyH = res.windowHeight - that.myheaderH - that.vuex_custom_bar_height - 10;
 				}
 			});
+			that.getLocation();
 			// #endif
 		},
 		onReady() {
@@ -67,6 +68,7 @@
 					that.bodyH = res.windowHeight - that.myheaderH - that.vuex_custom_bar_height - 80;
 				}
 			});
+			that.getLocation();
 			// #endif
 		},
 
@@ -75,12 +77,21 @@
 			ShowLocalSelect() {
 				this.$refs.InexSearchPopup.showPopup();
 			},
-
+			//获取当前位置
+			getLocation(){
+				this.$refs.CompMap.getLocation();
+			}
 		}
 	}
 </script>
 
 <style lang="scss" scoped>
+	.longlinedots{
+		max-width: 90px;
+		white-space: nowrap;
+	    overflow: hidden;
+	    text-overflow: ellipsis;
+	}
 	/* 自定义导航栏内容 start */
 	.custom-nav {
 		height: 100%;
