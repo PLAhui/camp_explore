@@ -55,7 +55,7 @@
 			},
 			changeSearchKey() {
 				var that = this;
-				this.$qqmapsdk.search({
+				this.$qqmapsdk.getSuggestion({
 					keyword: this.searchKey,
 					auto_extend:"",
 					success: function(res) {
