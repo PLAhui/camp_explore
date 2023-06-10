@@ -10,8 +10,10 @@
 				<tn-button shape="round" shadow fontColor="#737275" @click="showPopup(2)">更多筛选</tn-button>
 			</view>
 			<view class="justify-content-item">
-				<tn-button shape="icon" shadow margin="10rpx" fontBold fontColor="#737275" @click="showPopup(3)"> <text
-						class="tn-icon-set"></text></tn-button>
+				<tn-button shape="icon" shadow margin="10rpx" fontBold 
+				fontColor="#737275" @click="showPopup(3)" v-if="false"> 
+					<text class="tn-icon-set"></text>
+				</tn-button>
 			</view>
 		</view>
 		<InexSelectPopup ref="InexSelectPopup" :marginTop="height" />
@@ -36,7 +38,9 @@
 				
 			};
 		},
-		
+		mounted() {
+			// this.showPopup(1)
+		},
 		methods:{
 			//显示选择弹出层
 			showPopup(type) {

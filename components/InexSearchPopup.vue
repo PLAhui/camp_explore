@@ -49,7 +49,8 @@
 				this.$t.vuex('CENTERLATLONG', {
 					latitude: e.location.lat,
 					longitude: e.location.lng,
-					address: e.title
+					address: e.title,
+					scale:12,
 				})
 				this.showPopup()
 			},

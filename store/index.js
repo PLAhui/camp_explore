@@ -43,7 +43,8 @@ const store = new Vuex.Store({
 		CENTERLATLONG: lifeData.CENTERLATLONG ? lifeData.CENTERLATLONG : {
 			latitude: 39.909,
 			longitude: 116.39742,
-			address: '未知'
+			address: '未知',
+			scale:'12'
 		},
 
 

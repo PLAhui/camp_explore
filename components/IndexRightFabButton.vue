@@ -1,7 +1,7 @@
 <!-- 首页右侧悬浮按钮 -->
 <template>
 	<view class="root">
-		<tn-button size="lg" shape="icon" shadow margin="10rpx" fontBold fontColor="#737275" @click=""> 
+		<tn-button size="lg" shape="icon" shadow margin="10rpx" fontBold fontColor="#737275" @click="changeCompsType"> 
 			<text class="tn-icon-menu-list" style="font-size: 20px;"></text>
 		</tn-button>
 	</view>
@@ -12,6 +12,11 @@
 		name: "IndexRightFabButton",
 		data() {
 			return {}
+		},
+		methods:{
+			changeCompsType(){
+				this.$emit('changeCompsType')
+			}
 		}
 	}
 </script>

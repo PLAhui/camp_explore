@@ -12,9 +12,15 @@
 		
 		<IndexHeaderBar ref="IndexHeaderBar" :height="myheaderH" id="myheader"/>
 		<InexSearchPopup ref="InexSearchPopup" />
-		<CompMap ref="CompMap" :height="bodyH"/>
+		<CompMap ref="CompMap" :height="bodyH" v-if="!showCompList"/>
+
+		
+		
+		<CampCardList ref="CampCardList" :height="bodyH" v-if="showCompList"/>
+		
+		
 		<!-- <IndexCardsHorizontalScrol/> -->
-		<IndexRightFabButton/>
+		<IndexRightFabButton @changeCompsType="changeCompsType"/>
 	</view>
 </template>
 
@@ -24,6 +30,7 @@
 	import CompMap from '@/components/CompMap.vue'
 	import IndexCardsHorizontalScrol from '@/components/IndexCardsHorizontalScrol.vue'
 	import IndexRightFabButton from '@/components/IndexRightFabButton.vue'
+	import CampCardList from '@/components/CampCardList.vue'
 
 
 	import methods_mixin from '@/libs/mixin/methods_mixin.js'
@@ -34,13 +41,15 @@
 			InexSearchPopup,
 			CompMap,
 			IndexCardsHorizontalScrol,
-			IndexRightFabButton
+			IndexRightFabButton,
+			CampCardList
 		},
 		name: 'Index',
 		data() {
 			return {
 				myheaderH: 0, //筛选栏卡片高度
 				bodyH: 0, //页面主体高度
+				showCompList:false,//显示营地卡片列表
 			}
 		},
 		mounted() {
@@ -80,6 +89,10 @@
 			//获取当前位置
 			getLocation(){
 				this.$refs.CompMap.getLocation();
+			},
+			//切换营地显示模式：地图，列表
+			changeCompsType(){
+				this.showCompList = !this.showCompList;
 			}
 		}
 	}

@@ -1,7 +1,9 @@
 <!-- 首页地图组件 -->
 <template>
 	<view class="">
-		<map style="width: 100%;" :style="{height: height + 'px'}" :latitude="CENTERLATLONG.latitude"
+		<map style="width: 100%;" :style="{height: height + 'px'}" 
+			:scale="CENTERLATLONG.scale"
+			:latitude="CENTERLATLONG.latitude"
 			:longitude="CENTERLATLONG.longitude">
 		</map>
 	</view>
@@ -43,13 +45,14 @@
 						that.$qqmapsdk.reverseGeocoder({
 							location: {
 								latitude: res.latitude,
-								longitude: res.longitude
+								longitude: res.longitude,
 							},
 							success: function(ress) {
 								console.log(ress);
 								that.$t.vuex('CENTERLATLONG', {
 									latitude: res.latitude,
 									longitude: res.longitude,
+									scale:12,
 									address: ress.result.address_component.district
 								})
 							},
