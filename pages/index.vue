@@ -101,6 +101,9 @@
 				tabberPageLoadFlag: []
 			}
 		},
+		onShow() {
+			this.showAddPopup = false;
+		},
 		onLoad(options) {
 			const index = Number(options.index || 0)
 			// 根据底部tabbar菜单列表设置对应页面的加载情况
