@@ -1,119 +1,111 @@
-	/* 营地类型卡片 */
-	.CampCards {
-		padding: 10rpx;
-		width: 100%;
-		display: flex;
-		justify-content: space-between; //左右布局
-		flex-wrap: wrap; //如果一行放不下就会自动换行
-		align-content: flex-start; //紧揍排列
+.CampCards {
+  padding: 10rpx;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
 
-		.card {
-			width: 50%;
+.CampCards .card {
+  width: 50%;
+}
 
-			.main {
-				position: relative;
-				margin: 10rpx;
-				height: auto;
-				border-radius: 10rpx;
-				padding: 20rpx 10px;
+.CampCards .card .main {
+  position: relative;
+  margin: 10rpx;
+  height: auto;
+  border-radius: 10rpx;
+  padding: 20rpx 10px;
+}
 
-				.rightTopTag {
-					position: absolute;
-					top: 10px;
-					right: 10px;
-					font-size: 36rpx;
-				}
+.CampCards .card .main .rightTopTag {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 36rpx;
+}
 
-				.img {
-					margin: 0 auto;
-					width: 120rpx;
-					height: 120rpx;
-					background-color: cadetblue;
+.CampCards .card .main .img {
+  margin: 0 auto;
+  width: 120rpx;
+  height: 120rpx;
+  background-color: cadetblue;
+}
 
-				}
+.CampCards .card .main .avatar {
+  text-align: center;
+  padding-top: 30rpx;
+}
 
-				.avatar {
-					text-align: center;
-					padding-top: 30rpx;
-				}
+.CampCards .card .main .title {
+  text-align: center;
+  padding-top: 20rpx;
+  font-size: 38rpx;
+  font-weight: 500;
+  color: #a2a2a2;
+}
 
-				.title {
-					text-align: center;
-					padding-top: 20rpx;
-					font-size: 38rpx;
-					font-weight: 500;
-					color: #a2a2a2;
-				}
+.CampCards .card .main .desc {
+  padding: 20rpx 0 20rpx 0;
+  font-size: 32rpx;
+  color: #868686;
+}
 
-				.desc {
-					padding: 20rpx 0 20rpx 0;
-					font-size: 32rpx;
-					color: #868686;
-				}
+.CampDetailCards {
+  padding: 10rpx;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
 
-			}
-		}
+.CampDetailCards .card {
+  background-color: #eaf7ef;
+  position: relative;
+  margin: 5rpx;
+  height: auto;
+  border-radius: 10rpx;
+  padding: 10rpx 40rpx;
+}
 
-	}
+.CampDetailCards .card .rightTopTag {
+  position: absolute;
+  top: 10rpx;
+  right: 10rpx;
+  font-size: 36rpx;
+}
 
-	/* 营区信息单个详情卡片 */
-	.CampDetailCards {
-		padding: 10rpx;
-		width: 100%;
-		display: flex;
-		justify-content: flex-start; //左右布局
-		flex-wrap: wrap; //如果一行放不下就会自动换行
+.CampDetailCards .card .avatar {
+  text-align: center;
+  padding-top: 15rpx;
+}
 
-		.card {
-			background-color: #eaf7ef;
-			position: relative;
-			margin: 5rpx;
-			height: auto;
-			border-radius: 10rpx;
-			padding: 10rpx 40rpx;
+.CampDetailCards .card .title {
+  text-align: center;
+  padding-top: 10rpx;
+  font-size: 38rpx;
+  font-weight: 500;
+  color: #a2a2a2;
+}
 
-			.rightTopTag {
-				position: absolute;
-				top: 10rpx;
-				right: 10rpx;
-				font-size: 36rpx;
-			}
+.CampDetailCards .card .desc {
+  padding: 20rpx 0 20rpx 0;
+  font-size: 32rpx;
+  color: #868686;
+}
 
-			.avatar {
-				text-align: center;
-				padding-top: 15rpx;
-			}
+.circleList .circleTab {
+  z-index: 999;
+  position: fixed;
+  top: 0rpx;
+  font-size: 36rpx;
+  height: 40px;
+  width: 100%;
+  background-color: white;
+}
 
-			.title {
-				text-align: center;
-				padding-top: 10rpx;
-				font-size: 38rpx;
-				font-weight: 500;
-				color: #a2a2a2;
-			}
+.circleList .circleTab .tabs {
+  width: 200rpx;
+}
 
-			.desc {
-				padding: 20rpx 0 20rpx 0;
-				font-size: 32rpx;
-				color: #868686;
-			}
-		}
-	}
-
-	.circleList {
-
-		/* position: relative; */
-		.circleTab {
-			z-index: 999;
-			position: fixed;
-			top: 0rpx;
-			font-size: 36rpx;
-			height: 40px;
-			width: 100%;
-			background-color: white;
-
-			.tabs {
-				width: 200rpx;
-			}
-		}
-	}

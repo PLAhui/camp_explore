@@ -16,7 +16,9 @@
 		<!-- 发现 -->
 		<view class="circleList" v-if="current==0">
 			<view class="circleTab" :style="{marginTop: vuex_custom_bar_height + 'px'}">
-				<tn-tabs class="tabs" :list="tablist" :isScroll="false" :current="tabcurrent" name="name" :showBar="false" @change="change"></tn-tabs>
+				<view class="tabs">
+					<tn-tabs  :list="tablist" :isScroll="false" :current="tabcurrent" name="name" :showBar="false" @change="change"></tn-tabs>
+				</view>
 			</view>
 
 
@@ -261,7 +263,7 @@
 		<!-- 活动 -->
 		<view class="" v-if="current==1">
 			<view class="tn-margin-bottom-lg" :style="{paddingTop: vuex_custom_bar_height + 'px'}">
-				<block v-for="(item, index) in reserve" :key="index">
+				<block v-for="index in 10" :key="index">
 					<view class="CampCards">
 						<view class="card" v-for="index in 4">
 							<view class="main" style="background-color: #f7fbfa;">
