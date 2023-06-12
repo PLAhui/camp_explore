@@ -10,15 +10,19 @@
 			</view>
 		</tn-nav-bar>
 		
-		<IndexHeaderBar ref="IndexHeaderBar" :height="myheaderH" id="myheader"/>
+		<IndexHeaderBar ref="IndexHeaderBar" :height="myheaderH" id="myheader" class="myheader"/>
 		
 		
 		<InexSearchPopup ref="InexSearchPopup" />
-		<CompMap ref="CompMap" :height="bodyH" v-if="!showCompList" :style="{paddingTop: myheaderH + 'px'}"/>
+		
+		<!-- 用于占位 -->
+		<view :style="{height: myheaderH + 'px'}"></view>
+		
+		
+		<CompMap ref="CompMap" :height="bodyH" v-if="!showCompList"/>
 
 		
-		
-		<CampCardList ref="CampCardList" :height="bodyH + myheaderH " v-if="showCompList"  :style="{paddingTop: myheaderH + 'px'}"/>
+		<CampCardList ref="CampCardList" :height="bodyH" v-if="showCompList"/>
 		
 		
 		<!-- <IndexCardsHorizontalScrol/> -->
@@ -62,7 +66,7 @@
 			}).exec()
 			uni.getSystemInfo({
 				success: function(res) {
-					that.bodyH = res.windowHeight - that.myheaderH - that.vuex_custom_bar_height - 10;
+					that.bodyH = res.windowHeight  - that.vuex_custom_bar_height - 10;
 				}
 			});
 			that.getLocation();
@@ -101,7 +105,7 @@
 </script>
 
 <style lang="scss" scoped>
-	#myheader{
+	.myheader{
 		background-color: #fff;
 		position: fixed;
 		top: 0px;
