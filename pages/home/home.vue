@@ -11,12 +11,14 @@
 		</tn-nav-bar>
 		
 		<IndexHeaderBar ref="IndexHeaderBar" :height="myheaderH" id="myheader"/>
+		
+		
 		<InexSearchPopup ref="InexSearchPopup" />
-		<CompMap ref="CompMap" :height="bodyH" v-if="!showCompList"/>
+		<CompMap ref="CompMap" :height="bodyH" v-if="!showCompList" :style="{paddingTop: myheaderH + 'px'}"/>
 
 		
 		
-		<CampCardList ref="CampCardList" :height="bodyH" v-if="showCompList"/>
+		<CampCardList ref="CampCardList" :height="bodyH + myheaderH " v-if="showCompList"  :style="{paddingTop: myheaderH + 'px'}"/>
 		
 		
 		<!-- <IndexCardsHorizontalScrol/> -->
@@ -99,6 +101,16 @@
 </script>
 
 <style lang="scss" scoped>
+	#myheader{
+		background-color: #fff;
+		position: fixed;
+		top: 0px;
+		width: 100%;
+		z-index: 999;
+	}
+	
+	
+	
 	.longlinedots{
 		max-width: 90px;
 		white-space: nowrap;

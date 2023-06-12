@@ -1,8 +1,15 @@
 <template>
 	<view class="root" :style="{height: height + 'px'}">
-		<view class="card" v-for="index in 10" :key="index">
+
+
+
+
+
+
+
+		<view class="card" v-for="index in 10" :key="index" v-if="true">
 			<view class="location">
-				<tn-tag size="lg" shape="circle"  plain backgroundColor="">
+				<tn-tag size="lg" shape="circle" backgroundColor="rgb(255,255,255,0.2)">
 					<text class="tn-icon-location"></text>
 					180km
 				</tn-tag>
@@ -14,8 +21,8 @@
 				</view>
 				<view class="title">二七区南环公园</view>
 				<view class="tags">
-					<tn-tag shape="circle"  plain backgroundColor="#77624d" margin="10rpx 10rpx 0 0">免费</tn-tag>
-					<tn-tag shape="circle"  plain backgroundColor="#77624d" margin="10rpx 10rpx 0 0">免费</tn-tag>
+					<tn-tag shape="circle" backgroundColor="rgb(255,255,255,0.2)" margin="10rpx 10rpx 0 0">免费</tn-tag>
+					<tn-tag shape="circle" backgroundColor="rgb(255,255,255,0.2)" margin="10rpx 10rpx 0 0">免费</tn-tag>
 				</view>
 			</view>
 		</view>
@@ -34,8 +41,12 @@
 		data() {
 			return {
 				count: 5,
-				value: 2
+				value: 2,
+				
 			};
+		},
+		methods: {
+			
 		}
 	}
 </script>
@@ -51,7 +62,9 @@
 		border-radius: 10rpx;
 		margin: 20rpx 15rpx;
 		height: 300rpx;
-		background: url(https://img0.baidu.com/it/u=3511715110,3119766139&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500);
+		//背景图片显示完整
+		background: url(https://s1.ax1x.com/2023/06/12/pCZdOQP.jpg) no-repeat center;
+		background-size: 100% 100%;
 
 		.location {
 			position: absolute;
@@ -69,10 +82,12 @@
 			padding: 20rpx;
 			color: white;
 			font-weight: 500;
-			.title{
+
+			.title {
 				font-size: 38rpx;
 			}
-			.tags{
+
+			.tags {
 				display: flex;
 				justify-content: flex-start; //左右布局
 				flex-wrap: wrap; //如果一行放不下就会自动换行
