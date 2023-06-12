@@ -20,27 +20,50 @@
 					"disableScroll": true
 				}
 			}
+		}, {
+			"path": "pages/login/login",
+			"style": {
+				"navigationBarTitleText": "登录",
+				"enablePullDownRefresh": false
+			}
+
 		}
-	    ,{
-            "path" : "pages/login/login",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "登录",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-    ],
-	// "subPackages": [{
-	// 	"root": "minePages",
-	// 	"pages": [{
-	// 		"path": "avatar",
-	// 		"style": {
-	// 			"navigationBarTitleText": "头像上传",
-	// 			"enablePullDownRefresh": false
-	// 		}
-	// 	}]
-	// }],
+	],
+	"subPackages": [{
+		"root": "campPages",
+		"pages": [{
+			"path": "createCamp/createCamp",
+			"style": {
+				"navigationBarTitleText": "创建营地",
+				"enablePullDownRefresh": false
+			}
+		}, {
+			"path": "result",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}    ,{
+                    "path" : "campInfoType/campInfoType",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+                ,{
+                    "path" : "campInfoType/campInfoSelect",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+            ]
+	}],
 	"globalStyle": {
 		"navigationStyle": "custom",
 		"navigationBarTextStyle": "black",

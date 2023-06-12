@@ -33,7 +33,7 @@
 					<view class="icon tn-icon-star"></view>
 					<view class="title">写评价</view>
 				</view>
-				<view class="btn">
+				<view class="btn" @click="tn('/campPages/createCamp/createCamp')">
 					<view class="icon tn-icon-location"></view>
 					<view class="title">新营地</view>
 				</view>
@@ -143,6 +143,11 @@
 			tabbarPageScrollLower(e) {
 				console.log("导航页面滚动到底部")
 			},
+			tn(path){
+				uni.navigateTo({
+					url:path
+				})
+			}
 		}
 	}
 </script>

@@ -1,0 +1,91 @@
+	/* 营地类型卡片 */
+	.CampCards {
+		padding: 10rpx;
+		width: 100%;
+		display: flex;
+		justify-content: space-between; //左右布局
+		flex-wrap: wrap; //如果一行放不下就会自动换行
+		align-content: flex-start; //紧揍排列
+
+		.card {
+			width: 50%;
+
+			.main {
+				position: relative;
+				margin: 10rpx;
+				height: auto;
+				border-radius: 10rpx;
+				padding: 0 10px;
+
+				.rightTopTag {
+					position: absolute;
+					top: 10px;
+					right: 10px;
+					font-size: 36rpx;
+				}
+
+				.avatar {
+					text-align: center;
+					padding-top: 30rpx;
+				}
+
+				.title {
+					text-align: center;
+					padding-top: 20rpx;
+					font-size: 38rpx;
+					font-weight: 500;
+					color: #a2a2a2;
+				}
+
+				.desc {
+					padding: 20rpx 0 20rpx 0;
+					font-size: 32rpx;
+					color: #868686;
+				}
+			}
+		}
+
+	}
+
+	/* 营区信息单个详情卡片 */
+	.CampDetailCards {
+		padding: 10rpx;
+		width: 100%;
+		display: flex;
+		justify-content: flex-start; //左右布局
+		flex-wrap: wrap; //如果一行放不下就会自动换行
+		.card {
+			background-color: #eaf7ef;
+			position: relative;
+			margin: 5rpx;
+			height: auto;
+			border-radius: 10rpx;
+			padding: 10rpx 40rpx;
+
+			.rightTopTag {
+				position: absolute;
+				top: 10rpx;
+				right: 10rpx;
+				font-size: 36rpx;
+			}
+
+			.avatar {
+				text-align: center;
+				padding-top: 15rpx;
+			}
+
+			.title {
+				text-align: center;
+				padding-top: 10rpx;
+				font-size: 38rpx;
+				font-weight: 500;
+				color: #a2a2a2;
+			}
+
+			.desc {
+				padding: 20rpx 0 20rpx 0;
+				font-size: 32rpx;
+				color: #868686;
+			}
+		}
+	}

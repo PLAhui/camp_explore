@@ -13,7 +13,7 @@
 			</view>
 
 			<view class="" v-if="false">
-				<view class="cards">
+				<view class="CampCards">
 					<view class="card" v-for="index in 4">
 						<view class="item">
 							<view class="avatar">
@@ -136,42 +136,4 @@
 		padding: 20rpx;
 	}
 
-	.cards {
-		padding: 10rpx;
-		width: 100%;
-		display: flex;
-		justify-content: space-between; //左右布局
-		flex-wrap: wrap; //如果一行放不下就会自动换行
-		align-content: flex-start; //紧揍排列
-
-		.card {
-			width: 50%;
-
-			.item {
-				margin: 10rpx;
-				height: auto;
-				background-color: #6bba7f;
-				border-radius: 10rpx;
-				padding: 0 10px;
-				color: white;
-
-				.avatar {
-					text-align: center;
-					padding-top: 30rpx;
-				}
-
-				.title {
-					text-align: center;
-					padding-top: 20rpx;
-					font-size: 38rpx;
-					font-weight: 500;
-				}
-
-				.desc {
-					padding: 20rpx 0 20rpx 0;
-					font-size: 32rpx;
-				}
-			}
-		}
-	}
 </style>
