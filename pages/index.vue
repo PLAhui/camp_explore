@@ -26,8 +26,23 @@
 			</scroll-view>
 		</view>
 
+
+		<tn-popup v-model="showAddPopup" mode="bottom" :borderRadius="20" safeAreaInsetBottom>
+			<view class="btns">
+				<view class="btn">
+					<view class="icon tn-icon-star"></view>
+					<view class="title">写评价</view>
+				</view>
+				<view class="btn">
+					<view class="icon tn-icon-location"></view>
+					<view class="title">新营地</view>
+				</view>
+			</view>
+		</tn-popup>
+
 		<tn-tabbar v-model="currentIndex" :list="tabbarList" activeColor="#838383" inactiveColor="#AAAAAA"
-			activeIconColor="#FBBD12" :animation="true" :safeAreaInsetBottom="true" @change="switchTabbar"></tn-tabbar>
+			activeIconColor="#FBBD12" :animation="true" :safeAreaInsetBottom="true" @change="switchTabbar"
+			:beforeSwitch="beforeSwitch"></tn-tabbar>
 	</view>
 </template>
 
@@ -48,6 +63,7 @@
 		},
 		data() {
 			return {
+				showAddPopup: false, //发布弹出层
 				// 底部tabbar菜单数据
 				tabbarList: [{
 						title: '营地',
@@ -94,6 +110,14 @@
 			this.switchTabbar(index)
 		},
 		methods: {
+			beforeSwitch(index) {
+				//阻止页面切换，显示弹窗
+				if (index == 2) {
+					this.showAddPopup = true;
+					return false;
+				}
+				return true;
+			},
 			// 切换导航,切换导航页面
 			switchTabbar(index) {
 				var that = this;
@@ -124,7 +148,31 @@
 </script>
 
 <style lang="scss" scoped>
-	page{
-		background-color:#fff;
+	page {
+		background-color: #fff;
+	}
+
+	.btns {
+		padding: 60rpx 20rpx;
+		// width: 100%;
+		display: flex;
+		justify-content: space-evenly; //左右布局
+		flex-wrap: wrap; //如果一行放不下就会自动换行
+		align-content: flex-start; //紧揍排列
+
+		.btn {
+			// background-color: blueviolet;
+			// height: 50px;
+			// width: 100px;
+			text-align: center;
+
+			.icon {
+				font-size: 48rpx;
+			}
+
+			.title {
+				font-size: 36rpx;
+			}
+		}
 	}
 </style>
