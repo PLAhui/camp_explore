@@ -171,6 +171,7 @@
 			}
 
 			.title {
+				padding-top: 20rpx;
 				font-size: 36rpx;
 			}
 		}
