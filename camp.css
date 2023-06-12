@@ -15,13 +15,21 @@
 				margin: 10rpx;
 				height: auto;
 				border-radius: 10rpx;
-				padding: 0 10px;
+				padding: 20rpx 10px;
 
 				.rightTopTag {
 					position: absolute;
 					top: 10px;
 					right: 10px;
 					font-size: 36rpx;
+				}
+
+				.img {
+					margin: 0 auto;
+					width: 120rpx;
+					height: 120rpx;
+					background-color: cadetblue;
+
 				}
 
 				.avatar {
@@ -42,6 +50,7 @@
 					font-size: 32rpx;
 					color: #868686;
 				}
+
 			}
 		}
 
@@ -54,6 +63,7 @@
 		display: flex;
 		justify-content: flex-start; //左右布局
 		flex-wrap: wrap; //如果一行放不下就会自动换行
+
 		.card {
 			background-color: #eaf7ef;
 			position: relative;
@@ -86,6 +96,24 @@
 				padding: 20rpx 0 20rpx 0;
 				font-size: 32rpx;
 				color: #868686;
+			}
+		}
+	}
+
+	.circleList {
+
+		/* position: relative; */
+		.circleTab {
+			z-index: 999;
+			position: fixed;
+			top: 0rpx;
+			font-size: 36rpx;
+			height: 40px;
+			width: 100%;
+			background-color: white;
+
+			.tabs {
+				width: 200rpx;
 			}
 		}
 	}

@@ -15,7 +15,7 @@
 			<view class="" v-if="false">
 				<view class="CampCards">
 					<view class="card" v-for="index in 4">
-						<view class="item">
+						<view class="main">
 							<view class="avatar">
 								<tn-avatar src="xxx.jpg" size="lg"></tn-avatar>
 							</view>
