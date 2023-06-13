@@ -64,6 +64,9 @@
 					},
 					fail(res) {
 						console.log(res)
+						uni.showToast({
+							title:res.errMsg,icon:'none'
+						})
 					}
 				});
 			}

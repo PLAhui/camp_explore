@@ -4,10 +4,10 @@
 		<view class="tn-flex tn-flex-row-between tn-margin-left-sm tn-margin-right-sm"
 			:style="{paddingTop: vuex_custom_bar_height + 'px'}" ref="myheader" id="myheader">
 			<view class="justify-content-item">
-				<tn-button shape="icon" shadow fontBold fontColor="#737275" @click="showPopup(0)"> <text
+				<tn-button shape="icon" shadow fontBold fontColor="#737275" @click="showPopup('search')"> <text
 						class="tn-icon-search"></text></tn-button>
-				<tn-button shape="round" shadow margin="10rpx" fontColor="#737275" @click="showPopup(1)">类型</tn-button>
-				<tn-button shape="round" shadow fontColor="#737275" @click="showPopup(2)">更多筛选</tn-button>
+				<tn-button shape="round" shadow margin="10rpx" fontColor="#737275" @click="showPopup('type')">类型</tn-button>
+				<tn-button shape="round" shadow fontColor="#737275" @click="showPopup('more')">更多筛选</tn-button>
 			</view>
 			<view class="justify-content-item">
 				<tn-button shape="icon" shadow margin="10rpx" fontBold 
@@ -39,12 +39,12 @@
 			};
 		},
 		mounted() {
-			// this.showPopup(1)
+
 		},
 		methods:{
 			//显示选择弹出层
 			showPopup(type) {
-				this.$refs.InexSelectPopup.showPopup();
+				this.$refs.InexSelectPopup.showPopup(type);
 			},
 		}
 	}

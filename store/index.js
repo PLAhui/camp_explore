@@ -13,7 +13,7 @@ try {
 }
 
 // 标记需要永久存储的变量，在每次启动时取出，在state中的变量名
-let saveStateKeys = ['APP_USER', 'APP_TOKEN']
+let saveStateKeys = ['APP_USER', 'APP_TOKEN','HISTORY_LOCATION']
 
 // 保存变量到本地存储
 const saveLifeData = function(key, value) {
@@ -46,6 +46,8 @@ const store = new Vuex.Store({
 			address: '未知',
 			scale:'12'
 		},
+		//查询的定位信息记录
+		HISTORY_LOCATION:lifeData.HISTORY_LOCATION ? lifeData.HISTORY_LOCATION : null,
 
 
 		// 如果上面从本地获取的lifeData对象下有对应的属性，就赋值给state中对应的变量

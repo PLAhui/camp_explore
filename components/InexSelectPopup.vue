@@ -1,18 +1,14 @@
 <!-- 首页筛选弹出层 -->
 <template>
 	<view>
-
-
-
-
 		<tn-popup v-model="show" mode="top" :marginTop="marginTop" :mask="false" :borderRadius="20">
-			<view style="background-color:'';padding: 10rpx;" v-if="false">
+			<view style="background-color:'';padding: 10rpx;" v-if="type=='search'">
 				<tn-input v-model="search" type="text" :border="true" :showRightIcon="true" placeholder="输入营地,城市名称搜索营地"
 					rightIcon="search" style="border-radius:20px" />
 				<view class="tn-margin-sm"></view>
 			</view>
 
-			<view class="" v-if="false">
+			<view class="" v-if="type=='type'">
 				<view class="CampCards">
 					<view class="card" v-for="index in 4">
 						<view class="main">
@@ -30,7 +26,7 @@
 
 
 
-			<view class="" v-if="true">
+			<view class="" v-if="type=='more'">
 				<uni-collapse>
 					<uni-collapse-item v-for="(item, index) in list" :key="index" :title="item.title">
 						<view class="checkboxGroup">
@@ -97,6 +93,7 @@
 		},
 		data() {
 			return {
+				type:'',
 				show: false,
 				search: '',
 
@@ -124,7 +121,9 @@
 			};
 		},
 		methods: {
+			//根据类型显示弹出层内容
 			showPopup(e) {
+				this.type = e;
 				this.show = !this.show;
 			}
 		}
@@ -135,5 +134,4 @@
 	.checkboxGroup {
 		padding: 20rpx;
 	}
-
 </style>
